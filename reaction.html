@@ -41,20 +41,20 @@
             myTime = undefined;
             buttonTime = Date.now();
 
-            for(let x=0;x<4;x++){
+            for(let i=0;i<4;i++){
               setTimeout(() => {
-                  document.getElementById("countdown").innerHTML = x;
-                }, (3-x)*1000);
+                  document.getElementById("countdown").innerHTML = i;
+                }, (3-i)*1000);
             }
 
               setTimeout(() => {
                 if(myTime == undefined){
-                  document.getElementById("target").innerHTML = "you are too late to react";
+                  document.getElementById("target").innerHTML = "Too Slow";
                 }
                 
                 else{
                   let elapsedTime = (-1) * (buttonTime - myTime);
-                  document.getElementById("target").innerHTML = "Time is "+elapsedTime;
+                  document.getElementById("target").innerHTML = "Time was "+elapsedTime;
                 }
               }, 3000)
             }
