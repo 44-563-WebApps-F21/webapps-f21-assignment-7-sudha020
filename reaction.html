@@ -33,6 +33,7 @@
   var myTime=undefined;
   function recordReact() {
           
+    
           myTime = Date.now();
           console.log("Current Time in milliseconds is: " + myTime);
 
@@ -40,8 +41,8 @@
         function startTime() {
             myTime = undefined;
             buttonTime = Date.now();
-
-            for(let i=0;i<4;i++){
+            myCount = Math.round(Math.random() * (10 - 2) + 2)
+            for(let i=0;i<myCount;i++){
               setTimeout(() => {
                   document.getElementById("countdown").innerHTML = i;
                 }, (3-i)*1000);

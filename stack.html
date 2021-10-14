@@ -25,8 +25,7 @@
 
 <body>
 	<h1>Sudarsan Reddy Gooli builds a stack</h1>
-	<input type="text" class="form-control" style="text-align: center;" id="f_i" name="inputElement"
-	placeholder="Enter a Text">
+	<input id="InputElement" type="text" > 
 		<div class="flex-container" id="target">
 		  <div class="stack">row item 1</div>   
 		  <div class="stack">row item 2</div>  
@@ -35,21 +34,58 @@
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Push value</button>
+		<button onclick="makeNewDiv()">Push Value</button>
+		<button onclick="popItem()">Pop Value</button>
+		<button onclick="zap()">Zap Value</button>
+		<button onclick="myUnique()">Zap Value</button>
 	
 	
 </body>
 <script>
 	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("p")
-		divelement.innerHTML = input.value
-		divelement.className = "stack"
-		element.style.color = "orange"
-
-		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-		
+		var divelement = document.createElement("div")
+	var input = document.getElementById("InputElement")
+	divelement.innerHTML = input.value
+	divelement.className = "stack"	
+	document.getElementById('target').appendChild(divelement)
+	
 	}
+function popItem(){
+	var Items = document.getElementsByClassName("stack")
+		var length = Items.length
+		if (length > 0)
+		Items[length - 1].remove()
+}
+function zap(){
+	var Items = document.getElementsByClassName("stack")
+	let input = document.getElementById("InputElement").value
+	if (Items != undefined && Items.length > 0) {
+			for (let i = 0; i < Items.length; i++) {
+				if (Items[i].innerHTML == input) {
+					var itemToBeRemoved = Items[i].innerHTML
+					Items[i].remove()
+					console.log(itemToBeRemoved)
+					i--
+				}
+			}
+	}
+
+}
+function myUnique() {
+        Items=document.getElementsByClassName("stack")
+		for(let a=0;a<Items.length;a++){
+		com1 = Items[a].innerHTML;
+                for (let b = a + 1; b  < Items.length; b++) {
+                    let com2 = Items[j].innerHTML;
+
+                 if (com1 == com2) {
+                        console.log(Items[b])
+                        Items[b].remove();
+                        b--;
+                        a--;
+                    }
+                }
+			}
+    }
 </script>
 </html>	

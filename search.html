@@ -45,6 +45,7 @@
     <p>Click on the squares to search for wild life</p>
     <p id="tries">Number of triesis zero</p>
     <p id="distance">Distance is unknown</p>
+    <p onclick="resetGame()">Reset </p>
     <div class="container">
         <div class="row">
             <img src="tree.jpg" alt="tree" id="tree1" onclick="check(0)" width="90" height="90">
@@ -93,7 +94,23 @@
         
             var triesCount = 0;
             var animalLocation = 13;
+            function resetGame() {
+            triesCount = 0;
+            animalLocation = Math.round(Math.random()*(23 - 0) + 0);
+            document.getElementById("tries").innerHTML = triesCount;
+            distanc = "unKnown"
+            document.getElementById("distance").innerHTML = distanc;
         
+           
+            for (let i = 0; i < 24; i++) {
+            
+              if(ids[i]==animalLocation){
+                document.getElementById(ids[i]).src = "cheetah.jpg";
+            }else{
+                document.getElementById(ids[i]).src = "tree.jpg";
+            }
+        }
+        }
             function check(position) {
               id = ids[position]
               imagePosition = document.getElementById(id)
